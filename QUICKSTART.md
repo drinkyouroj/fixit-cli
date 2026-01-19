@@ -12,6 +12,8 @@ pip install -r requirements.txt
 python fixit.py --help
 ```
 
+**Note:** Requires Python 3.8 or higher.
+
 ## First Commands
 
 ### 1. Test the CLI
@@ -53,10 +55,29 @@ fixit --help
 fixit reset-user bob
 ```
 
+## Development Setup
+
+If you want to contribute or customize:
+
+```bash
+# Install dev dependencies
+pip install -r requirements-dev.txt
+
+# Run tests
+pytest
+
+# Format code
+black .
+
+# Install pre-commit hooks
+pre-commit install
+```
+
 ## Next Steps
 
 - Read the full [README.md](README.md) for detailed documentation
 - Try all the command options with `--help`
+- Check out the [IMPROVEMENTS.md](IMPROVEMENTS.md) for enhancement ideas
 - Customize the code to add your own commands!
 
 Happy fixing! 🔧

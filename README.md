@@ -162,27 +162,102 @@ fixit-cli/
 ├── fixit.py              # Main CLI entry point
 ├── commands/             # Command implementations
 │   ├── __init__.py
+│   ├── exceptions.py     # Custom exception classes
 │   ├── reset_user.py     # Password reset logic
 │   ├── ping_test.py      # Network testing logic
 │   └── log_dump.py       # Log dumping logic
+├── tests/                # Test suite
+│   ├── __init__.py
+│   ├── test_cli.py       # CLI integration tests
+│   ├── test_reset_user.py
+│   ├── test_ping_test.py
+│   └── test_log_dump.py
+├── .github/
+│   └── workflows/
+│       └── ci.yml        # CI/CD pipeline
 ├── requirements.txt      # Python dependencies
+├── requirements-dev.txt  # Development dependencies
 ├── setup.py              # Package setup
+├── pyproject.toml        # Modern Python project config
+├── pytest.ini            # Pytest configuration
+├── .pre-commit-config.yaml # Pre-commit hooks
 └── README.md             # This file
 ```
 
 ## 🔧 Requirements
 
-- Python 3.7 or higher
+- Python 3.8 or higher
 - `click` library (install via `pip install click`)
+
+## 🧪 Development
+
+### Setup Development Environment
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/fixit-cli.git
+cd fixit-cli
+
+# Install dependencies
+pip install -r requirements.txt
+pip install -r requirements-dev.txt
+
+# Install pre-commit hooks (optional but recommended)
+pre-commit install
+```
+
+### Running Tests
+
+```bash
+# Run all tests
+pytest
+
+# Run with coverage
+pytest --cov=commands --cov=fixit --cov-report=html
+
+# Run specific test file
+pytest tests/test_reset_user.py
+```
+
+### Code Quality
+
+```bash
+# Format code with Black
+black .
+
+# Lint with Ruff
+ruff check .
+
+# Type check with MyPy
+mypy commands fixit
+
+# Run all checks (via pre-commit)
+pre-commit run --all-files
+```
+
+### Features
+
+- ✅ **Type Hints**: Full type annotations throughout the codebase
+- ✅ **Comprehensive Tests**: Unit and integration tests with pytest
+- ✅ **Structured Logging**: Configurable logging with `--log-level` option
+- ✅ **Custom Exceptions**: Proper error handling with custom exception hierarchy
+- ✅ **CI/CD**: Automated testing and linting via GitHub Actions
+- ✅ **Code Quality**: Pre-commit hooks, Black, Ruff, and MyPy configured
 
 ## 🤝 Contributing
 
 Contributions are welcome! Feel free to:
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes (ensure tests pass and code is formatted)
 4. Submit a pull request
+
+**Before submitting:**
+- Run `pytest` to ensure all tests pass
+- Run `black .` to format code
+- Run `ruff check .` to check for linting issues
+- Run `mypy commands fixit` for type checking
 
 Ideas for contributions:
 - Add more IT support commands
@@ -190,6 +265,7 @@ Ideas for contributions:
 - Add configuration file support
 - Create installers for different platforms
 - Add more humor to help messages
+- Improve test coverage
 
 ## 📝 License
 

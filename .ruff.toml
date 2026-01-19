@@ -1,0 +1,3 @@
+# Ruff configuration (also in pyproject.toml, but some tools prefer this)
+line-length = 100
+target-version = "py38"
